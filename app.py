@@ -2,9 +2,13 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+
 @app.get("/")  # HTTP request: GET /
 def index():
-    return render_template("index.html", title = "Welcome!", heading = "Tell us about yourself",)
+    return render_template(
+        "index.html", title="Welcome!", heading="Tell us about yourself",
+    )
+
 
 # @app.get("/showform")
 # def display_form():
