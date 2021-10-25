@@ -22,26 +22,25 @@ def technologies():
 
 @app.get("/form")
 def display_form():
-    return render_template("form.html", title = "Feedback Form",
-                           heading = "Please, let me know what do you think of my website.",)
+    return render_template(
+        "form.html",
+        title="Feedback Form",
+        heading="Please, let me know what do you think of my website.",
+    )
 
-# @app.post("/processform")
-# def save_date():
-#     """
-#     Receive the data from the HTML form, then save it to a desk file,
-#     then respond with nice and friendly message to the awaiting browser.
 
-#     Following inputs are expected:first, last and dob.
-#     """
-#     # python-name = html-name:
-#     the_first = request.form["first"]
-#     the_last = request.form["last"]
-#     the_dob = request.form["dob"]
+@app.post("/processform")
+def save_date():
+    # python-name = html-name:
+    first_name = request.form["firstName"]
+    email = request.form["email"]
+    message = request.form["message"]
 
-#     # use the python names
-#     with open("suckers.txt", "a") as sf:
-#         print(f"{the_first}, {the_last}, {the_dob}", file=sf)
-#     return f"Thanks, {the_first}, we promise not to sell your data to the bad guys"
+    # use the python names
+    with open("comments.txt", "a") as sf:
+        print(f"{first_name}, {email}, {message}", file=sf)
+    return f"Thank you for your feedback {first_name}!"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
