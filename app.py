@@ -20,13 +20,10 @@ def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
 
 
-# @app.get("/showform")
-# def display_form():
-#     """
-#     Retrieve the form.html file from the hard disk and send it to the browser
-#     """
-#     return render_template("form.html", title = "Welcome form",
-#                            heading = "Please, fill in all required details",)
+@app.get("/form")
+def display_form():
+    return render_template("form.html", title = "Feedback Form",
+                           heading = "Please, let me know what do you think of my website.",)
 
 # @app.post("/processform")
 # def save_date():
