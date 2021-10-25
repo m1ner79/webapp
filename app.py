@@ -15,6 +15,13 @@ def cv():
     return render_template("cv.html", heading="My CV",)
 
 
+@app.get("/interest")  # HTTP request: GET /
+def interest():
+    return render_template(
+        "interest.html", heading="What I like to do away from the computer.",
+    )
+
+
 @app.get("/technologies")  # HTTP request: GET /
 def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
