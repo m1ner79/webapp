@@ -6,8 +6,18 @@ app = Flask(__name__)
 @app.get("/")  # HTTP request: GET /
 def index():
     return render_template(
-        "index.html", title="Welcome!", heading="Tell us about yourself",
+        "index.html", title="Welcome!", heading="Welcome to my home page!",
     )
+
+
+@app.get("/cv")  # HTTP request: GET /
+def cv():
+    return render_template("cv.html", heading="My CV",)
+
+
+@app.get("/technologies")  # HTTP request: GET /
+def technologies():
+    return render_template("technologies.html", heading="Amazing Technologies",)
 
 
 # @app.get("/showform")
