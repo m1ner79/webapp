@@ -4,7 +4,8 @@ A Flask-based Webapp with Jinja2.
 ## Requirements:
 I need to build a multi-page webapp using Flask/Jinja2 which provides details about me, my interests, and the computing technologies I like.  
 ### The following pages are required:
-- A home page providing links to the various sections of my website.•A personal page providing all the usual details.
+- A home page providing links to the various sections of my website.
+- A personal page providing all the usual details.
 - A CV page providing details of interest to potential employers.
 - A computing technologies page which has at least 3 sub-pages providing details on my favourite computing technologies.
 - An interests page which provides details on your interests outside of my course and computers.
