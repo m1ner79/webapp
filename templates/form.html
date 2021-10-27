@@ -1,28 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
-<div>
-    <fieldset>
-        <form action="/processform" method="POST">
-            <p>
-                <label for="firstName">First name:</label>
-                <input type="text" name="firstName" placeholder="First Name" autocomplete="off"
-                    required />
-            </p>
-            <label for="email">Email :</label>
-            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"           placeholder="joeblogs@gmail.com" required />
-            </p>
-            <p>
-                <label for="message">Message for me (max 140 characters):</label>
-                <input type="text" name="message" placeholder="Enter your message here..." maxlength="140" size="30" required/>
-            </p>
-            <br> <br>
-            <p>
-                <input type="submit" value="Submit" />
-                <input type="reset" value="Clear" />
-            </p>
-        </form>
-    </fieldset>
-</div>
-
+<fieldset class="form">
+    <form action="/processform" method="POST">
+        <p>
+            <label for="firstName">First name:</label>
+            <input type="text" name="firstName" placeholder="First Name" style="margin-left: 76px;" size="30" autocomplete="off" required />
+        </p>
+        <p>
+        <label for="email">Email :</label>
+        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            placeholder="joeblogs@gmail.com" style="margin-left: 107px;" size="30" autocomplete="off" required />
+        </p>
+        <p>
+            <label for="message">Message for me </br>(max 140 characters):</label>
+            <input type="text" name="message" placeholder="Enter your message here..." maxlength="140" size="30" autocomplete="off"
+                required />
+        </p>
+        <br> <br>
+        <p>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Clear" />
+        </p>
+    </form>
+</fieldset>
 {% endblock %}

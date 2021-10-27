@@ -10,27 +10,32 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <title>{{ title }}</title>
 </head>
 
 <body>
     <header>
-        <figure style="margin-left: 0px; margin-right: 0px;">
+        <figure style="margin: 0px;">
             <a href="/">
-            <img src="https://avatars0.githubusercontent.com/u/55558050?s=400&u=258cb5229b0670fa5fb1b3b4c7cf29f23fae5ef0&v=4" alt="Link to my photo on github" style="border-radius: 50%;" width="200" height= "200">
+                <img src="https://avatars0.githubusercontent.com/u/55558050?s=400&u=258cb5229b0670fa5fb1b3b4c7cf29f23fae5ef0&v=4"
+                    alt="Link to my photo on github" style="border-radius: 50%;" width="150" height="150">
             </a>
         </figure>
+        <div class="navBar">
+            <a class="active" href="/">About me</a>
+            <a href="/cv">My CV</a>
+            <a href="/interest">Interest</a>
+            <a href="/technologies">Technologies</a>
+        </div>
     </header>
-    <nav>
-        <a href="/">About me</a> |
-        <a href="/cv">My CV</a> |
-        <a href="/interest">Interest</a> |
-        <a href="/technologies">Technologies</a> |
-    </nav>
-    <h2>{{ heading }}</h2>
+    <div id="main">
+        <h2>{{ heading }}</h2>
 
-    {% block body %}
-    {% endblock %}
+        {% block body %}
+        {% endblock %}
+    </div>
+
     <hr>
     Copyright (C) Michal Gornicki 2021
 </body>
