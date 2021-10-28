@@ -27,6 +27,26 @@ def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
 
 
+@app.get("/machinelearning")  # HTTP request: GET /
+def ml():
+    return render_template("machinelearning.html", heading="Machine Learning",)
+
+
+@app.get("/cloudcomputing")  # HTTP request: GET /
+def cc():
+    return render_template("cloudcomputing.html", heading="Cloud Computing",)
+
+
+@app.get("/3dprinting")  # HTTP request: GET /
+def printing():
+    return render_template("3dprinting.html", heading="3D Printing",)
+
+
+@app.get("/message")  # HTTP request: GET /
+def message():
+    return render_template("message.html",)
+
+
 @app.get("/form")
 def display_form():
     return render_template(
@@ -46,7 +66,9 @@ def save_date():
     # use the python names
     with open("comments.txt", "a") as sf:
         print(f"{first_name}, {email}, {message}", file=sf)
-    return f"Thank you for your feedback {first_name}!"
+    return render_template(
+        "message.html", name=first_name, heading="So Long, and Thanks for All the Fish",
+    )
 
 
 if __name__ == "__main__":

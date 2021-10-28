@@ -52,6 +52,10 @@ fieldset {
 .form {
   width: 625px;
 }
+h1 {
+  text-align: center;
+  color:cornflowerblue;
+}
 
 p {
   margin-left: 2.5em;
