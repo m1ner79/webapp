@@ -49,10 +49,18 @@ fieldset {
   margin-right: auto;
 }
 
+.form {
+  width: 625px;
+}
+
 p {
   margin-left: 2.5em;
   margin-right: 2.5em;
   padding: auto;
+}
+
+h2 {
+  text-align: center;
 }
 
 
@@ -84,4 +92,20 @@ input[type=reset] {
 
 input[type=reset]:hover {
   background-color: #a04545;
+}
+
+input[type=button] {
+
+  background-color: dodgerblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=button]:hover {
+  background-color: rgb(45, 199, 219);
 }
