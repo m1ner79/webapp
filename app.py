@@ -27,17 +27,17 @@ def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
 
 
-@app.get("/machinelearning")  # HTTP request: GET /
+@app.get("/technologies/machinelearning")  # HTTP request: GET /
 def ml():
     return render_template("machinelearning.html", heading="Machine Learning",)
 
 
-@app.get("/cloudcomputing")  # HTTP request: GET /
+@app.get("/technologies/cloudcomputing")  # HTTP request: GET /
 def cc():
     return render_template("cloudcomputing.html", heading="Cloud Computing",)
 
 
-@app.get("/3dprinting")  # HTTP request: GET /
+@app.get("/technologies/3dprinting")  # HTTP request: GET /
 def printing():
     return render_template("3dprinting.html", heading="3D Printing",)
 
