@@ -65,7 +65,7 @@ def save_date():
 
     # use the python names
     with open("comments.txt", "a") as sf:
-        print(f"{first_name}, {email}, {message}", file=sf)
+        print(f"{email}, {message}", file=sf)
     return render_template(
         "message.html", name=first_name, heading="So Long, and Thanks for All the Fish",
     )
