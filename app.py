@@ -74,7 +74,22 @@ def save_date():
             values
             (%s, %s, %s)
         """
-        db.execute(SQL,())
+        db.execute(SQL, (first_name, email, message))
+    return render_template(
+        "message.html", name=first_name, heading="So Long, and Thanks for All the Fish",
+    )
+
+
+@app.get("/getdata")
+def get_latest_data():
+    with DBcm.UseDatabase(config) as db:
+        SQL = """
+            select fname,email,message,time
+            from visitors
+        """
+        db.execute(SQL)
+        data = db.fetchall()
+    return jsonify(data)
 
 
 if __name__ == "__main__":
