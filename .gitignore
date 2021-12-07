@@ -1,4 +1,3 @@
 __pycache__/
 .idea/*
-comments.txt
-pictures
+appconfig.py
