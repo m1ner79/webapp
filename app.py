@@ -6,46 +6,52 @@ import DBcm
 from appconfig import config
 
 
-@app.route("/")  # HTTP request: GET /
+@app.route("/") 
 def index():
     return render_template(
         "index.html", title="Welcome!", heading="Welcome to my home page!",
     )
 
 
-@app.route("/cv")  # HTTP request: GET /
+@app.route("/cv") 
 def cv():
     return render_template("cv.html", heading="My CV",)
 
 
-@app.route("/interest")  # HTTP request: GET /
+@app.route("/interest")
 def interest():
     return render_template(
         "interest.html", heading="What I like to do away from the computer.",
     )
 
 
-@app.route("/technologies")  # HTTP request: GET /
+@app.route("/technologies")  
 def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
 
 
-@app.route("/technologies/machinelearning")  # HTTP request: GET /
+@app.route("/technologies/machinelearning")
 def ml():
     return render_template("machinelearning.html", heading="Machine Learning",)
 
 
-@app.route("/technologies/cloudcomputing")  # HTTP request: GET /
+@app.route("/technologies/cloudcomputing")  
 def cc():
     return render_template("cloudcomputing.html", heading="Cloud Computing",)
 
 
-@app.route("/technologies/3dprinting")  # HTTP request: GET /
+@app.route("/technologies/3dprinting")  
 def printing():
     return render_template("3dprinting.html", heading="3D Printing",)
 
 
-@app.route("/message")  # HTTP request: GET /
+# @app.route("/visitors") 
+# def visitors():
+#     return render_template(
+#         "visitors.html", heading="Comments from the visitors.",
+#     )
+
+@app.route("/message")  
 def message():
     return render_template("message.html",)
 
@@ -60,7 +66,7 @@ def display_form():
 
 
 @app.route("/processform", methods=["POST"])
-def save_date():
+def save_data():
     # python-name = html-name:
     first_name = request.form["fname"]
     email = request.form["email"]
@@ -80,12 +86,26 @@ def save_date():
     )
 
 
+@app.get("/visitors")
+def get_latest_comments():
+    with DBcm.UseDatabase(config) as db:
+        SQL = """
+            select fname,email,message,time
+            from visitors order by time desc
+        """
+        db.execute(SQL)
+        data = db.fetchall()
+    return render_template(
+        "visitors.html", data=data, heading="Comments from the visitors.",
+    )
+
+# this is to display data in json style
 @app.get("/getdata")
 def get_latest_data():
     with DBcm.UseDatabase(config) as db:
         SQL = """
             select fname,email,message,time
-            from visitors
+            from visitors order by time desc
         """
         db.execute(SQL)
         data = db.fetchall()
