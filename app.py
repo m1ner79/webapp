@@ -6,14 +6,14 @@ import DBcm
 from appconfig import config
 
 
-@app.route("/") 
+@app.route("/")
 def index():
     return render_template(
         "index.html", title="Welcome!", heading="Welcome to my home page!",
     )
 
 
-@app.route("/cv") 
+@app.route("/cv")
 def cv():
     return render_template("cv.html", heading="My CV",)
 
@@ -25,7 +25,7 @@ def interest():
     )
 
 
-@app.route("/technologies")  
+@app.route("/technologies")
 def technologies():
     return render_template("technologies.html", heading="Amazing Technologies",)
 
@@ -35,23 +35,24 @@ def ml():
     return render_template("machinelearning.html", heading="Machine Learning",)
 
 
-@app.route("/technologies/cloudcomputing")  
+@app.route("/technologies/cloudcomputing")
 def cc():
     return render_template("cloudcomputing.html", heading="Cloud Computing",)
 
 
-@app.route("/technologies/3dprinting")  
+@app.route("/technologies/3dprinting")
 def printing():
     return render_template("3dprinting.html", heading="3D Printing",)
 
 
-# @app.route("/visitors") 
-# def visitors():
-#     return render_template(
-#         "visitors.html", heading="Comments from the visitors.",
-#     )
+@app.route("/visitors")
+def visitors():
+    return render_template(
+        "visitors.html", heading="Comments from the visitors.",
+    )
 
-@app.route("/message")  
+
+@app.route("/message")
 def message():
     return render_template("message.html",)
 
@@ -90,14 +91,16 @@ def save_data():
 def get_latest_comments():
     with DBcm.UseDatabase(config) as db:
         SQL = """
-            select fname,email,message,time
+            select fname,message,time
             from visitors order by time desc
+            limit 10
         """
         db.execute(SQL)
         data = db.fetchall()
     return render_template(
         "visitors.html", data=data, heading="Comments from the visitors.",
     )
+
 
 # this is to display data in json style
 @app.get("/getdata")
