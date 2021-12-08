@@ -1,5 +1,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 98vh;
 }
 
 header {
@@ -47,6 +50,8 @@ fieldset {
   background-color: #f1f1f1;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .form {
@@ -54,7 +59,7 @@ fieldset {
 }
 h1 {
   text-align: center;
-  color:cornflowerblue;
+  color: cornflowerblue;
 }
 
 p {
@@ -67,10 +72,17 @@ h2 {
   text-align: center;
 }
 
+footer {
+  background: cornflowerblue;
+  color: white;
+  line-height: 40px;
+  padding: 0 20px;
+  margin-left: -10px;
+  width: 100%;
+}
 
-input[type=submit] {
-
-  background-color: #4CAF50;
+input[type="submit"] {
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -79,12 +91,11 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-input[type=reset] {
-
+input[type="reset"] {
   background-color: #7e1c1c;
   color: white;
   padding: 14px 20px;
@@ -94,12 +105,11 @@ input[type=reset] {
   cursor: pointer;
 }
 
-input[type=reset]:hover {
+input[type="reset"]:hover {
   background-color: #a04545;
 }
 
-input[type=button] {
-
+input[type="button"] {
   background-color: dodgerblue;
   color: white;
   padding: 14px 20px;
@@ -110,6 +120,33 @@ input[type=button] {
   float: right;
 }
 
-input[type=button]:hover {
+input[type="button"]:hover {
   background-color: rgb(45, 199, 219);
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: dodgerblue;
+  color: white;
 }
