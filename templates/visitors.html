@@ -1,9 +1,24 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
 {% block body %}
 <fieldset>
-    <p>
-        
-    </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comments</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[2]}}</td>
+        <td>{{row[3]}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </fieldset>
 {% endblock %}
