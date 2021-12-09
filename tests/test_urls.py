@@ -74,7 +74,6 @@ def test_correct_printingPage(client):
     """
     response = client.get("/technologies/3dprinting")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
@@ -96,6 +95,7 @@ def test_correct_messagePage(client):
     assert response.status_code == 200
     assert "<!DOCTYPE html>" in response.get_data(True)
 
+
 def test_correct_form(client):
     """Grab the home page, check for 200 code(all ok), then check to
         see if we have received the correct form and that response is 
@@ -103,16 +103,16 @@ def test_correct_form(client):
     """
     response = client.get("/form")
     assert response.status_code == 200
-    #assert '<form action="/processform" method="post">' in response.get_data(True)
+    assert '<form action="/processform" method="post">' in response.get_data(True)
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
 #######################################################################
 
 
-def test_form_operation(client, clean_up_db):
-    """Create some test/sample data, then POST the data to the server.
-        Ensure the request is using POST, then look for a 200(all ok) status code.
+def test_form_operation_in(client, clean_up_db):
+    """Create some test/sample data, then 'post' the data to the server.
+        Ensure the request is using 'post', then look for a 200(all ok) status code.
         Get the response,check for valid HTML page, then check that the submitted
         form data was received then send back to the browser in the response.
     """
@@ -125,5 +125,4 @@ def test_form_operation(client, clean_up_db):
     assert request.method == "POST"
     assert response.status_code == 200
     assert "<!DOCTYPE html>" in response.get_data(True)
-    # assert "<form_data['login'], encoding='utf-8'>"in response.get_data(True)
-    # assert bytes(form_data["visitors"], encoding="utf-8") in response.get_data(True)
+    assert (form_data["fname"]) in response.get_data(True)

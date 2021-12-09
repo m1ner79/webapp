@@ -21,7 +21,7 @@ def test_count_increase(client, clean_up_db):
     form_data = {
         "fname": "tester",
         "email": "test@test.ie",
-        "message":"message",
+        "message": "message",
     }
     # Send the data to webapp using the FORM's URL
     client.post("/processform", data=form_data)
@@ -58,5 +58,3 @@ def test_last_row(client, clean_up_db):
         results = db.fetchall()
     assert results[0][0] == form_data["fname"]
     assert results[0][1] == form_data["message"]
-
-
