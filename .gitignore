@@ -3,3 +3,5 @@ __pycache__/
 appconfig.py
 .coverage
 htmlcov/
+pictures/
+
