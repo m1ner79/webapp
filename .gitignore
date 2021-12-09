@@ -1,6 +1,5 @@
 __pycache__/
 .idea/*
-appconfig.py
 .coverage
 htmlcov/
 pictures/
