@@ -1,1 +1,0 @@
-grant all on visitorsDB.* to 'visitor' identified by 'visitorpass';
