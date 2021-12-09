@@ -5,3 +5,4 @@ htmlcov/
 .coverage
 pictures/
 GRANT_command.txt
+appconfig.py
