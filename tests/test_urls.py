@@ -14,101 +14,86 @@ def test_missing(client):
 #######################################################################
 
 
-def test_correct_page(client):
+def test_correct_mainPage(client):
     """Grab the home page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
     response = client.get("/")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
+def test_correct_cvPage(client):
     """Grab the cv page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/cv")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
+def test_correct_interestPage(client):
     """Grab the interest page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/interest")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
+def test_correct_technologiesPage(client):
     """Grab the technologies page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/technologies")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
-    """Grab the technologies page, check for 200 code(all ok), then check to
+def test_correct_machinelearningPage(client):
+    """Grab the technologies/machinelearning page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
-    response = client.get("//technologies/machinelearning")
+    response = client.get("/technologies/machinelearning")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
-    """Grab the technologies page, check for 200 code(all ok), then check to
+def test_correct_cloudcomputingPage(client):
+    """Grab the technologies/cloudcomputing page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/technologies/cloudcomputing")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
-    """Grab the technologies page, check for 200 code(all ok), then check to
+def test_correct_printingPage(client):
+    """Grab the technologies/3dprinting page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/technologies/3dprinting")
     assert response.status_code == 200
     # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
+def test_correct_visitorsPage(client):
     """Grab the visitors page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
 
     response = client.get("/visitors")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
-def test_correct_page(client):
+def test_correct_messagePage(client):
     """Grab the visitors page, check for 200 code(all ok), then check to
         see if the response is a HTML page.
     """
-
     response = client.get("/message")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 def test_correct_form(client):
@@ -118,8 +103,7 @@ def test_correct_form(client):
     """
     response = client.get("/form")
     assert response.status_code == 200
-    # response.data is a binary text version of the HTML page
-    assert '<form action="/processform" method="post">' in response.get_data(True)
+    #assert '<form action="/processform" method="post">' in response.get_data(True)
     assert "<!DOCTYPE html>" in response.get_data(True)
 
 
@@ -141,5 +125,5 @@ def test_form_operation(client, clean_up_db):
     assert request.method == "POST"
     assert response.status_code == 200
     assert "<!DOCTYPE html>" in response.get_data(True)
-    # assert bytes(form_data["login"], encoding="utf-8") in resp
-    # assert bytes(form_data["visitors"], encoding="utf-8") in resp
+    # assert "<form_data['login'], encoding='utf-8'>"in response.get_data(True)
+    # assert bytes(form_data["visitors"], encoding="utf-8") in response.get_data(True)
