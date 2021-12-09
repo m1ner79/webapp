@@ -17,4 +17,4 @@ else:
         "database": "C00265618$default",
         "user": "C00265618",
         "password": "NewPasswd",
-    }
+    }# pragma: no cover
