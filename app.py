@@ -45,13 +45,6 @@ def printing():
     return render_template("3dprinting.html", heading="3D Printing",)
 
 
-@app.route("/visitors")
-def visitors():
-    return render_template(
-        "visitors.html", heading="Comments from the visitors.",
-    )
-
-
 @app.route("/message")
 def message():
     return render_template("message.html",)
@@ -66,7 +59,7 @@ def display_form():
     )
 
 
-@app.route("/processform", methods=["POST"])
+@app.route("/processform", methods=["post"])
 def save_data():
     # python-name = html-name:
     first_name = request.form["fname"]
